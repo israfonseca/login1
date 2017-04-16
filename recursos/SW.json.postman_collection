@@ -1,0 +1,102 @@
+{
+	"id": "4e4459d1-d356-6ba9-b2c2-f8fa8899cc3d",
+	"name": "SW",
+	"description": "Pruebas de API de SW",
+	"order": [
+		"fc942269-c49b-e611-b764-6443993ee839",
+		"9e3b2500-1188-c29e-d8b6-17be6343ff52",
+		"c15ef0be-9ad6-4e2f-9ccb-f6bc97ea866d"
+	],
+	"folders": [],
+	"timestamp": 1447892332175,
+	"owner": "108800",
+	"remoteLink": "",
+	"public": false,
+	"requests": [
+		{
+			"id": "9e3b2500-1188-c29e-d8b6-17be6343ff52",
+			"headers": "",
+			"url": "http://dev.sw.com:3000/api/getorphanbacklog",
+			"pathVariables": {},
+			"preRequestScript": "",
+			"method": "GET",
+			"collectionId": "4e4459d1-d356-6ba9-b2c2-f8fa8899cc3d",
+			"data": [],
+			"dataMode": "params",
+			"name": "API - getorphanbacklog",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1447892493322,
+			"version": 2,
+			"responses": [],
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "c15ef0be-9ad6-4e2f-9ccb-f6bc97ea866d",
+			"headers": "",
+			"url": "http://dev.sw.com:3000/api/addtobacklog",
+			"pathVariables": {},
+			"preRequestScript": "",
+			"method": "POST",
+			"collectionId": "4e4459d1-d356-6ba9-b2c2-f8fa8899cc3d",
+			"data": [
+				{
+					"key": "code",
+					"value": "01",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "description",
+					"value": "Prueba de Product Backlog",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "owner",
+					"value": "obetancourthunicah@gmail.com",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "storypoints",
+					"value": "10",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "API - addtobacklog",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1447893221348,
+			"version": 2,
+			"responses": [],
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "fc942269-c49b-e611-b764-6443993ee839",
+			"headers": "",
+			"url": "http://dev.sw.com:3000/api/do",
+			"pathVariables": {},
+			"preRequestScript": "",
+			"method": "GET",
+			"collectionId": "4e4459d1-d356-6ba9-b2c2-f8fa8899cc3d",
+			"data": [],
+			"dataMode": "urlencoded",
+			"name": "API  - do",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1447892427027,
+			"version": 2,
+			"responses": [],
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		}
+	]
+}
