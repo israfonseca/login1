@@ -1,21 +1,25 @@
-
-
-
 <div data-role="page" id="backlog">
   <div data-role="header" data-position="fixed">
     <h4>Postear</h4>
   </div>
   <div class="ui-content" role="main">
     <form id="post_form">
-      <h2 id="publicar_nombre">Nombre de usuario</h2>
+      <label for="">Nombre:</label>{{user}}      
       <input type="hidden" value="" name="nombre_id" id="nombre_id"/>
       <label for="">¿Que estas pensando?</label>
       <textarea id="postear" name="postear" rows="8" cols="80"></textarea>
       <br />
       <br />
-      <a id="btnPublicar" class="ui-btn">Publicar</a>
+      <input type="submit" value="Publicar" name="btnEnviar" />
       <a href="#listUsers" class="ui-btn">Cancelar</a>
     </form>
+  </div>
+  <div class="postarea">
+    <ul>
+      {{#each posts}}
+        <li>{{user}} : {{post}}</li>
+      {{/each}}
+    </ul>
   </div>
   <div data-role="footer" data-position="fixed">
     <h5>Derechos Reservados SW 2017</h5>

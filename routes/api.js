@@ -21,18 +21,13 @@ var upload = multer({dest:"public/img/",
 
 function getAPIRoutes(db){
     //Loading MongoDB Collections
-    var product_backlog = db.collection('producto_backlog');
+  //  var blogMdl = BlogFabric(db);
+  //console.log(blogMdl);
+
+    var product_backlog = db.collection('product_backlog');
     var users = db.collection('users');
+    var publicaciones = db.collection('publicaciones');
 
-    router.post('/addPost',function(req,res,next){
-          var nuevoPost = {};
-          nuevoPost.postear = req.body.postear;
-          blogMdl.agregarPublicacion(nuevoPost,function(err, PostAgregado){
-            if(err) return res.status(403).json({"error":"error al ingresar publicacion."});
-            return res.status(200).json(PostAgregado);
-          });
-
-        });
 
 
     // Security Entries
@@ -188,6 +183,65 @@ function getAPIRoutes(db){
             }
         });
     });
+
+router.get('/addtopost', function(req, res, next) {
+  res.render('backlog', { "post": post});
+});
+router.post('/addtopost', function(req, res, next) {
+  var newPost = {
+    "user": "",
+    "post": req.body.postear,
+    "created": Date.now()
+  };
+  //var query = {_id: new ObjectID(req.params.backlogId)};
+   publicaciones.insertOne(newPost, function(err, d){
+     if(err){
+      res.status(403).json({"error":err});
+     }else{
+       res.status(200).json({"ok":true});
+     }
+   });
+
+  });
+//});
+
+/*router.get("/addPost", function(req,res){
+   var query = {_id: new ObjectID(req.params.backlogId)};
+    publicaciones.insert(data, function(err, d){
+      if(err){
+        handler(err,null);
+      }else{
+        handler(null, d);
+      }
+    });
+});
+
+router.get('/post', function(req, res, next) {
+  obtenerPublicaciones(function(err, Publicaciones){
+        if(err) return res.status(404).json({"error":"No se obtiene Datos"});
+        return res.status(200).json(Publicaciones);
+    });
+  });
+
+    router.post('/addPost',function(req,res,next){
+      var nuevoPost = {};
+      nuevoPost.postear = req.body.postear;
+      agregarPublicacion(nuevoPost,function(err, PostAgregado){
+        if(err) return res.status(403).json({"error":"error al ingresar publicacion."});
+        return res.status(200).json(PostAgregado);
+      });
+
+    });
+
+    publicaciones.insertOne(newPost, function(err, result){
+        if(err){
+            res.status(403).json({"error":err});
+        }else{
+            res.status(200).json({"ok":true});
+        }
+    });*/
+
+
 
     return router;
 } //getAPIRoutes

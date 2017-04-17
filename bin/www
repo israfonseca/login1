@@ -5,10 +5,10 @@
  */
 
 
-var debug = require('debug')('mejqmn:server');
+var debug = require('debug')('MicroBlog:server');
 var http = require('http');
 var MongoClient = require('mongodb').MongoClient;
-var mongourl = "mongodb://localhost:27017/mejqmn";
+var mongourl = "mongodb://localhost:27017/MicroBlog";
 
 MongoClient.connect(mongourl, function(err, db){
     if(err){ onError(err);}
